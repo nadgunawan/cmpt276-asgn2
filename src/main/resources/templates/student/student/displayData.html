@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/styleDisplay.css">
+    <link rel="stylesheet" href="/stylesheets/stylesheets/styleDisplay.css">
     <title>Document</title>
     <link
 </head>
@@ -34,13 +34,13 @@
     <h1> Students </h1>
     <div class="row justify-content-center">
         <div th:each="students : ${stu}" class="student-box">
-            <div style="display: flex; flex-direction: column; padding-top:20px;">
+            <div style="display: flex; flex-direction: column; padding-top:20px;align-items: center;">
                 <div style="margin-bottom: 20px;">
                   <img th:src="@{/user.png}" alt="User image">
                 </div>
                 <div class="two-buttons">
-                  <a th:href="'/students/'+${students.uid}" class="btn btn-primary" type="submit" value="EDIT">EDIT</a>
-                  <a th:href="'/students/delete/'+${students.uid}" class="btn btn-primary" type="submit" value="DELETE">DELETE</a>
+                  <a th:href="'/students/'+${students.uid}" class="btn btn-primary" type="submit" value="EDIT" style="background-color: blue;width:75px; text-align: center;">EDIT</a>
+                  <a th:href="'/students/delete/'+${students.uid}" class="btn btn-primary" type="submit" value="DELETE"style="background-color: red;width:75px;text-align: center;">DELETE</a>
                 </div>
                 
             </div>
@@ -54,7 +54,7 @@
 
             <div >
                 <p th:text="${students.emailID}" style="font-size: 19px; padding-top:20px;"></p>
-                <p th:text="${'Weight: '+students.weight +' kg'}" style=" padding-top: 50px;font-size: 15px;"></p>
+                <p th:text="${'Weight: '+students.weight +' kg'}" style=" padding-top: 42px;font-size: 15px;"></p>
                 <p th:text="${'Height: '+students.height+' cm'}" style="font-size: 15px;"></p>
                 <p th:text="${'Hair color: ' + students.hairColor}" style="font-size: 15px;" ></p>
             </div>

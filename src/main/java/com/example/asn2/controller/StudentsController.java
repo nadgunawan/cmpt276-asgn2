@@ -33,24 +33,24 @@ public class StudentsController {
         System.out.println("Getting users");
         List<Students> student = studentRepo.findAll();
         model.addAttribute("stu", student);
-        return "student/showAll";
+        return "student/student/showAll";
     }
 
-    @GetMapping("/students/view/{uid}")
-    public String getStudent(Model model, @PathVariable String uid){
-        System.out.println("Getting user "+ uid);
-        int id = Integer.parseInt(uid); 
-        Students s = studentRepo.findById(id).get(); 
-        model.addAttribute("student"); 
-        return "showUser";
-    }
+    // @GetMapping("/students/view/{uid}")
+    // public String getStudent(Model model, @PathVariable String uid){
+    //     System.out.println("Getting user "+ uid);
+    //     int id = Integer.parseInt(uid); 
+    //     Students s = studentRepo.findById(id).get(); 
+    //     model.addAttribute("student"); 
+    //     return "showUser";
+    // }
 
     @GetMapping("/students/display")
     public String displayAllUsers(Model model){
         System.out.println("Display users");
         List<Students> student = studentRepo.findAll();
         model.addAttribute("stu", student);
-        return "student/displayData";
+        return "student/student/displayData";
     }
 
     
@@ -59,7 +59,7 @@ public class StudentsController {
         
         Students newStudent = new Students("Nadine",57,159,"brown","3.5","Data Science", 2025, "Indonesian", "nga57@sfu.ca");
         studentRepo.save(newStudent);
-        return "student/added";
+        return "student/student/added";
     }
     @PostMapping("/students/add")
     public String addStudents(@RequestParam Map<String,String> newStudent, HttpServletResponse response) {
@@ -81,7 +81,7 @@ public class StudentsController {
 
     @GetMapping("/students/adding")
         public String addingStudents(){
-            return"student/add"; 
+            return"student/student/add"; 
         }
 
     @GetMapping("/students/{uid}")
@@ -89,7 +89,7 @@ public class StudentsController {
         System.out.println("Editing users");
         Students editStudent = studentRepo.findById(uid).get();
         model.addAttribute("stu", editStudent);
-        return"student/editData";
+        return"student/student/editData";
         }
         
 
