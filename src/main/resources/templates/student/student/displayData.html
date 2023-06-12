@@ -33,34 +33,32 @@
     </nav>
     <h1> Students </h1>
     <div class="row justify-content-center">
-
         <div th:each="students : ${stu}" class="student-box">
-            <div>
-                <br> 
-                <img th:src="@{/user.png}" alt="User image">
+            <div style="display: flex; flex-direction: column; padding-top:20px;">
+                <div style="margin-bottom: 20px;">
+                  <img th:src="@{/user.png}" alt="User image">
+                </div>
+                <div class="two-buttons">
+                  <a th:href="'/students/'+${students.uid}" class="btn btn-primary" type="submit" value="EDIT">EDIT</a>
+                  <a th:href="'/students/delete/'+${students.uid}" class="btn btn-primary" type="submit" value="DELETE">DELETE</a>
+                </div>
+                
             </div>
-            <div>
-                <h2 th:text="${students.studentName}"></h2> <br> 
-                <p th:text="${students.emailID}"></p>
-                <p th:text="${students.major}"></p>
-            </div>
-            <div>
-                <br><br><br> 
-                <p th:text="${students.nationality}"></p>
-                <p th:text="${students.gpa+' /4.33'}"></p>
+            <div style="font-size: 15px;">
+                <h2 th:text="${students.studentName}"></h2> 
+                <p th:text="${'Major: ' + students.major}" style="font-size: 18px;"></p>
+                <p th:text="${'Nationality: ' + students.nationality}" style="padding-top:20px;"></p>
+                <p th:text="${'GPA: '+ students.gpa+' / 4.33'}"></p>
                 <p th:text="${'Graduate year: ' + students.graduateYear}"></p>
-    
             </div>
-            <div>
-                <br><br><br> 
-                <p th:text="${students.weight +' kg'}"></p>
-                <p th:text="${students.height+' cm'} "></p>
-                <p th:text="${'Hair color: ' + students.hairColor}"></p>
+
+            <div >
+                <p th:text="${students.emailID}" style="font-size: 19px; padding-top:20px;"></p>
+                <p th:text="${'Weight: '+students.weight +' kg'}" style=" padding-top: 50px;font-size: 15px;"></p>
+                <p th:text="${'Height: '+students.height+' cm'}" style="font-size: 15px;"></p>
+                <p th:text="${'Hair color: ' + students.hairColor}" style="font-size: 15px;" ></p>
             </div>
-            <div class="text-end"> 
-                <a th:href="'/students/edit/'+${students.uid}" class="btn btn-primary" type="submit" value="EDIT" style ="background-color: navy; color: white;width:80px;height:40px;text-align: center;">EDIT</a>
-                <a th:href="'/students/delete/'+${students.uid}" class="btn btn-primary" type="submit" value="DELETE" style ="background-color:red; color: white; width:80px; height:40px;text-align: center;">DELETE</a>
-            </div>
+            
 
         </div>
 
